@@ -8,12 +8,12 @@ export default class CategoryList extends React.Component {
   getCategories = () => {
     fetch("http://localhost:1453/categories")
       .then(response => response.json())
-      .then(data =>this.setState({categories:data}));
+      .then(data => this.setState({ categories: data }));
   };
   componentDidMount() {
-   this.getCategories();
+    this.getCategories();
   }
-  render() { 
+  render() {
     return (
       <div>
         <h1>{this.props.model.title}</h1>
