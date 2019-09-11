@@ -17,13 +17,16 @@ export default class App extends React.Component {
   componentDidMount() {
     this.getProducts();
   }
-  getProducts = () => {
-    fetch("http://localhost:1453/products")
+  getProducts = categoryId => {
+    let url = "http://localhost:1453/products";
+    if (categoryId) url += "?categoryID=" + categoryId;
+    fetch(url)
       .then(response => response.json())
       .then(data => this.setState({ products: data }));
   };
   changeCategory = category => {
     this.setState({ currentCategory: category.name });
+    this.getProducts(category.categoryID);
   };
   state = {
     currentCategory: "",
