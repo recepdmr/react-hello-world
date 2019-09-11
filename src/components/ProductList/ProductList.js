@@ -1,12 +1,10 @@
 import React from "react";
 import { Table } from "reactstrap";
-
 export default class ProductList extends React.Component {
   render() {
     return (
       <div>
         <h1>{this.props.model.title}</h1>
-        <h1>{this.props.model.bisey}</h1>
         <Table>
           <thead>
             <tr>
