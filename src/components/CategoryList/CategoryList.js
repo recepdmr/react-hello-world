@@ -13,7 +13,7 @@ export default class CategoryList extends React.Component {
   componentDidMount() {
    this.getCategories();
   }
-  render() {
+  render() { 
     return (
       <div>
         <h1>{this.props.model.title}</h1>
