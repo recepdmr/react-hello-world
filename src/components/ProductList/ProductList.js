@@ -5,34 +5,29 @@ export default class ProductList extends React.Component {
     return (
       <div>
         <h1>{this.props.model.title}</h1>
+        <h1>{this.props.model.currentCategory}</h1>
         <Table>
           <thead>
             <tr>
               <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
+              <th>Name</th>
+              <th>Unit Price</th>
+              <th>Units In Stock</th>
+              <th>Units On Order</th>
+              <th>Quantity Per Unit</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            {this.props.model.products.map((product, index) => (
+              <tr key={index}>
+                <th scope="row">{product.productID}</th>
+                <td>{product.name}</td>
+                <td>{product.unitPrice}</td>
+                <td>{product.unitsInStock}</td>
+                <td>{product.unitsOnOrder}</td>
+                <td>{product.quantityPerUnit}</td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </div>
